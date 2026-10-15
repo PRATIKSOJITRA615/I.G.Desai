@@ -1,0 +1,378 @@
+.carousel-section {
+  width: 100%;
+  padding: 0;
+  background-color: var(--cream-bg);
+  overflow: hidden;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  height: 520px; /* Standardize banner container height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Certificate layout: protected aspect ratio with object-fit contain logic and matching backdrop styling */
+.certificate-banner-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+  background-color: var(--cream-bg); /* Soft light cream backdrop styling (#FCF8F2) */
+  animation: fadeIn 0.8s ease-out;
+}
+
+.certificate-image-render {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(77, 126, 29, 0.15);
+  animation: float 6s ease-in-out infinite;
+}
+
+.certificate-card {
+  width: 100%;
+  max-width: 680px;
+  height: 100%;
+  background-color: var(--white);
+  border: 10px double var(--secondary-color);
+  padding: 2rem;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.certificate-badge {
+  color: var(--white);
+  padding: 0.75rem;
+  border-radius: 50%;
+  display: inline-flex;
+  margin-bottom: 1rem;
+  animation: float 4s ease-in-out infinite;
+}
+
+.certificate-card h2 {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.cert-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+}
+
+.toppers-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: auto;
+}
+
+.topper-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--cream-bg);
+  padding: 0.65rem 1.2rem;
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition-smooth);
+}
+
+.topper-row:hover {
+  transform: translateX(4px);
+  background-color: #f1ebd8;
+}
+
+.topper-badge {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.topper-details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.topper-details h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.topper-details p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.topper-score {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.cert-footer {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  border-top: 1px dashed rgba(77, 126, 29, 0.2);
+  width: 100%;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+/* Landscape School Banners Styling */
+.landscape-banner-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 5rem;
+  color: var(--white);
+}
+
+.landscape-content {
+  max-width: 600px;
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.landscape-content .badge {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(5px);
+  text-transform: uppercase;
+}
+
+.banner-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.65), 0 1px 3px rgba(0, 0, 0, 0.4); /* Perfect text contrast over bright building */
+}
+
+.banner-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4); /* Sharp and legible */
+}
+
+.banner-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.landscape-illustration {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+  padding: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.landscape-illustration svg {
+  width: 80px;
+  height: 80px;
+}
+
+/* Control Navigation Buttons */
+.control-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--secondary-color); /* Deep Forest Green for outstanding default contrast */
+  color: var(--white);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Sleek shadow */
+  transition: var(--transition-smooth);
+}
+
+.control-btn:hover {
+  background-color: var(--primary-color); /* Vibrant Lime Green on hover */
+  color: var(--white);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.control-btn.prev {
+  left: 2rem;
+}
+
+.control-btn.next {
+  right: 2rem;
+}
+
+/* Meta controls bar (Dots and play/pause slider) */
+.carousel-meta-controls {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: rgba(44, 62, 43, 0.7);
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+.play-pause-btn {
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.play-pause-btn:hover {
+  color: var(--primary-color);
+}
+
+.dots-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot-indicator {
+  background-color: rgba(255, 255, 255, 0.4);
+  border: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.dot-indicator.active {
+  background-color: var(--primary-color);
+  transform: scale(1.2);
+  width: 24px;
+  border-radius: 5px;
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 1024px) {
+  .carousel-container {
+    height: 480px;
+  }
+  .landscape-banner-wrapper {
+    padding: 3rem;
+  }
+  .banner-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    height: 580px; /* Give vertical space for certificate boxes */
+  }
+  .landscape-banner-wrapper {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+  }
+  .landscape-content {
+    max-width: 100%;
+  }
+  .banner-title {
+    font-size: 1.8rem;
+  }
+  .banner-actions {
+    justify-content: center;
+  }
+  .landscape-illustration {
+    padding: 1.5rem;
+  }
+  .landscape-illustration svg {
+    width: 48px;
+    height: 48px;
+  }
+  .control-btn {
+    display: none; /* Hide arrows on mobile for swipe/dot convenience */
+  }
+  .certificate-card {
+    height: 100%;
+    padding: 1.2rem;
+    border-width: 6px;
+  }
+  .certificate-card h2 {
+    font-size: 1.3rem;
+  }
+  .topper-row {
+    padding: 0.5rem 0.8rem;
+  }
+}
