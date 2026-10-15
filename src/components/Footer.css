@@ -81,6 +81,12 @@
   transform: translateY(-2px);
 }
 
+.footer-socials .social-icon.map-social-icon:hover {
+  background-color: #ff7a2f;
+  color: var(--white);
+  box-shadow: 0 4px 12px rgba(255, 122, 47, 0.4);
+}
+
 /* Quick links footer list */
 .footer-col h4 {
   font-size: 1.05rem;

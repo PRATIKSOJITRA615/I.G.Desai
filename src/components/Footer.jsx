@@ -23,15 +23,25 @@ const Footer = ({ setActivePage }) => {
           </div>
           <p className="about-text">Empowering students in Surat with qualitative GSEB secondary curriculum standards and practical, modern vocational training workshops.</p>
           <div className="footer-socials">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon" title="Facebook" aria-label="Facebook">
               <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
               </svg>
             </a>
-            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon" title="YouTube" aria-label="YouTube">
               <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.498 6.163c-.272-1.022-1.074-1.826-2.099-2.099C19.558 3.5 12 3.5 12 3.5s-7.558 0-9.399.564C1.576 4.337.774 5.14.502 6.163 0 8.07 0 12 0 12s0 3.93.502 5.837c.272 1.022 1.074 1.826 2.099 2.099C4.442 20.5 12 20.5 12 20.5s7.558 0 9.399-.564c1.025-.273 1.827-1.077 2.099-2.099.502-1.907.502-5.837.502-5.837s0-3.93-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
               </svg>
+            </a>
+            <a 
+              href="https://www.google.com/maps/search/?api=1&query=I.G.+Desai+School+Bhatar+Road+Near+Althan+Tenaments+Surat" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="social-icon map-social-icon"
+              title="View on Map"
+              aria-label="View on Map"
+            >
+              <MapPin size={18} />
             </a>
           </div>
         </div>
