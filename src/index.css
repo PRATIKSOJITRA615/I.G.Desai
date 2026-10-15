@@ -2,32 +2,32 @@
 
 :root {
   /* Brand Palette */
-  --primary-color: #A1C038;      /* Lime/Olive Green */
+  --primary-color: #A1C038;
   --primary-hover: #b4d53f;
-  --secondary-color: #4D7E1D;    /* Deep Forest Green */
+  --secondary-color: #4D7E1D;
   --secondary-hover: #5d9724;
-  --cream-bg: #FCF8F2;           /* Soft Warm Cream */
-  --cream-light: #FFF9F1;        /* Warm Tint Cream */
+  --cream-bg: #FCF8F2;
+  --cream-light: #FFF9F1;
   --white: #FFFFFF;
-  --text-main: #2C3E2B;          /* Dark Forest Slate */
-  --text-muted: #5A6E59;         /* Light Forest Gray */
-  --accent-orange: #E67E22;      /* Golden Sand Accent */
-  
+  --text-main: #2C3E2B;
+  --text-muted: #5A6E59;
+  --accent-orange: #E67E22;
+
   /* Layout */
   --max-width: 1200px;
   --border-radius-sm: 8px;
   --border-radius-md: 16px;
   --border-radius-lg: 24px;
-  
+
   /* Shadow & Blur effects */
   --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
   --shadow-md: 0 10px 15px -3px rgba(77, 126, 29, 0.08), 0 4px 6px -2px rgba(77, 126, 29, 0.04);
   --shadow-lg: 0 20px 25px -5px rgba(77, 126, 29, 0.12), 0 10px 10px -5px rgba(77, 126, 29, 0.06);
   --glass: rgba(255, 255, 255, 0.85);
-  
+
   /* Fonts */
   --font-sans: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
+
   /* Transitions */
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -58,7 +58,10 @@ a {
   transition: var(--transition-smooth);
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font-family: inherit;
 }
 
@@ -72,6 +75,7 @@ ul {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -79,18 +83,39 @@ ul {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 @keyframes pulse-soft {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.03); opacity: 0.95; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.03);
+    opacity: 0.95;
+  }
 }
 
 /* Utility Classes */
