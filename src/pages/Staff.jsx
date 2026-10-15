@@ -35,11 +35,9 @@ const Staff = ({ activeDept = 'all' }) => {
         </div>
       </div>
 
-      {/* Selector Tabs */}
+      {/* Staff Grid */}
       <section className="section staff-list-section">
         <div className="container">
-
-
           {/* Cards Grid */}
           <div className="staff-grid">
             {filteredStaff.length > 0 ? (
