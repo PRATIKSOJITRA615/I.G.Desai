@@ -123,6 +123,25 @@ export function addStaff(staffList, newStaffData) {
 }
 
 /**
+ * Update an existing staff record by ID and persist.
+ * Returns the updated list.
+ */
+export function updateStaff(staffList, id, updatedData) {
+  const updated = staffList.map(s => {
+    if (s.id === id) {
+      return {
+        ...s,
+        ...updatedData,
+        id: s.id,
+      };
+    }
+    return s;
+  });
+  saveStaffList(updated);
+  return updated;
+}
+
+/**
  * Delete a staff record by ID and persist.
  * Returns the updated list.
  */
