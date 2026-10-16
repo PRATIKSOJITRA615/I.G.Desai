@@ -11,7 +11,20 @@ const BlogManager = () => {
   });
   const [formData, setFormData] = useState({ title: '', filename: '', category: 'News & Announcements', displayrank: 0 });
   const [imageFile, setImageFile] = useState(null);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState('');
   const [deleteTargetId, setDeleteTargetId] = useState(null);
+
+  useEffect(() => {
+    if (imageFile) {
+      const url = URL.createObjectURL(imageFile);
+      setImagePreviewUrl(url);
+      return () => URL.revokeObjectURL(url);
+    } else if (formData.filename && (formData.filename.startsWith('http') || formData.filename.startsWith('/'))) {
+      setImagePreviewUrl(formData.filename);
+    } else {
+      setImagePreviewUrl('');
+    }
+  }, [imageFile, formData.filename]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -29,6 +42,13 @@ const BlogManager = () => {
     }
   };
 
+  const handleRemoveImage = () => {
+    setImageFile(null);
+    setFormData(prev => ({ ...prev, filename: '' }));
+    const fileInput = document.getElementById('blog-image-upload');
+    if (fileInput) fileInput.value = '';
+  };
+
   const handleSave = async (e) => {
     e.preventDefault();
     const imageId = await saveImage(imageFile);
@@ -37,6 +57,8 @@ const BlogManager = () => {
     handleToggleForm(false);
     setFormData({ title: '', filename: '', category: 'News & Announcements', displayrank: 0 });
     setImageFile(null);
+    const fileInput = document.getElementById('blog-image-upload');
+    if (fileInput) fileInput.value = '';
   };
 
   const handleDeleteClick = (id) => {
@@ -91,7 +113,7 @@ const BlogManager = () => {
             
             <div className="admin-form-group">
               <label>Cover Image / Thumbnail (Filename)</label>
-              <div style={{ display: 'flex', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                 <input 
                   type="file" 
                   id="blog-image-upload" 
@@ -100,7 +122,7 @@ const BlogManager = () => {
                   onChange={e => {
                     if (e.target.files && e.target.files[0]) {
                       const file = e.target.files[0];
-                      setFormData({...formData, filename: file.name});
+                      setFormData(prev => ({...prev, filename: file.name}));
                       setImageFile(file);
                     }
                   }} 
@@ -108,20 +130,51 @@ const BlogManager = () => {
                 <input 
                   type="text" 
                   value={formData.filename} 
-                  onChange={e => setFormData({...formData, filename: e.target.value})} 
+                  onChange={e => setFormData(prev => ({...prev, filename: e.target.value}))} 
                   placeholder="e.g. event-thumb.jpg (or click icon to select)" 
                   style={{ flex: 1 }} 
                 />
                 <button 
                   type="button" 
                   className="btn btn-outline" 
-                  style={{ padding: '0.5rem' }}
+                  style={{ padding: '0.55rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                   title="Choose image from device"
                   onClick={() => document.getElementById('blog-image-upload').click()}
                 >
                   <ImageIcon size={18} />
                 </button>
               </div>
+
+              {imagePreviewUrl ? (
+                <div className="admin-image-preview-bar">
+                  <div className="admin-image-preview-info">
+                    <img 
+                      src={imagePreviewUrl} 
+                      alt="Preview" 
+                      className="admin-image-preview-thumb" 
+                    />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span className="admin-image-preview-title">Selected image</span>
+                      {formData.filename && (
+                        <span className="admin-image-preview-filename">{formData.filename}</span>
+                      )}
+                    </div>
+                  </div>
+                  <button 
+                    type="button" 
+                    className="admin-image-remove-btn"
+                    onClick={handleRemoveImage}
+                    title="Remove selected image"
+                  >
+                    <Trash2 size={13} />
+                    <span>Remove Photo</span>
+                  </button>
+                </div>
+              ) : (
+                <div style={{ marginTop: '0.4rem', fontSize: '0.8rem', color: '#7a8c78', fontStyle: 'italic' }}>
+                  No photo selected
+                </div>
+              )}
             </div>
 
             <div className="admin-form-group">
