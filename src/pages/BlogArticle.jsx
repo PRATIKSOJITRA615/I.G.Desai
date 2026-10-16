@@ -43,7 +43,6 @@ const BlogArticle = ({ activePage }) => {
       { type: "paragraph", text: "AI is not here to replace teachers but to empower them. By automating administrative tasks such as grading and attendance, teachers have more time to focus on what truly matters: mentoring and inspiring their students." }
     ];
 
-  // Mock data merged with DB data
   const article = {
     title: dbBlog.title,
     author: {
