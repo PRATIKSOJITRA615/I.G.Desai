@@ -93,7 +93,6 @@ function App() {
   }, [activePage]);
 
   const renderContent = () => {
-    // Dynamic single-page state routing matching all layout targets
     switch (activePage) {
       case 'home':
         return <Home setActivePage={setActivePage} />;
@@ -136,7 +135,7 @@ function App() {
     }
   };
 
-  // Admin mode takes over the whole screen (no public header/footer)
+
   if (activePage === 'admin' || activePage === 'ecorner-admin') {
     return <AdminWrapper setActivePage={setActivePage} />;
   }
