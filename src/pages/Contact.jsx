@@ -10,7 +10,7 @@ const Contact = () => {
     subject: 'admission',
     message: ''
   });
-  
+
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
@@ -27,10 +27,9 @@ const Contact = () => {
       setErrorMsg('Please fill in all the required fields (*).');
       return;
     }
-    
+
     setErrorMsg('');
     setSubmitted(true);
-    // Reset form
     setFormData({
       name: '',
       email: '',
@@ -56,7 +55,7 @@ const Contact = () => {
           <div className="contact-details-column">
             <h2>Institutional Coordinates</h2>
             <p>For immediate assistance regarding forms, documents, fee submissions, or credentials verification, reach out during office hours.</p>
-            
+
             <div className="coords-list">
               <div className="coord-item">
                 <div className="coord-icon"><MapPin size={22} /></div>
@@ -101,7 +100,7 @@ const Contact = () => {
           <div className="contact-form-column">
             <div className="form-card">
               <h2>Send an Inquiry</h2>
-              
+
               {submitted ? (
                 <div className="submission-success animate-fade-in">
                   <CheckCircle2 size={48} className="success-icon" />
@@ -112,13 +111,13 @@ const Contact = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="inquiry-form">
                   {errorMsg && <p className="form-error">{errorMsg}</p>}
-                  
+
                   <div className="form-group">
                     <label>Full Name *</label>
-                    <input 
-                      type="text" 
-                      name="name" 
-                      placeholder="e.g. Patel Aarav" 
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="e.g. Patel Aarav"
                       value={formData.name}
                       onChange={handleChange}
                       required
@@ -128,10 +127,10 @@ const Contact = () => {
                   <div className="form-group-row">
                     <div className="form-group">
                       <label>Email Address *</label>
-                      <input 
-                        type="email" 
-                        name="email" 
-                        placeholder="e.g. aarav@gmail.com" 
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="e.g. aarav@gmail.com"
                         value={formData.email}
                         onChange={handleChange}
                         required
@@ -140,10 +139,10 @@ const Contact = () => {
 
                     <div className="form-group">
                       <label>Phone Coordinates</label>
-                      <input 
-                        type="tel" 
-                        name="phone" 
-                        placeholder="e.g. +91 9876543210" 
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder="e.g. +91 9876543210"
                         value={formData.phone}
                         onChange={handleChange}
                       />
@@ -162,10 +161,10 @@ const Contact = () => {
 
                   <div className="form-group">
                     <label>Message Content *</label>
-                    <textarea 
-                      name="message" 
-                      rows="5" 
-                      placeholder="Type details of your request here..." 
+                    <textarea
+                      name="message"
+                      rows="5"
+                      placeholder="Type details of your request here..."
                       value={formData.message}
                       onChange={handleChange}
                       required
@@ -192,10 +191,10 @@ const Contact = () => {
               <MapPin size={48} className="map-marker" />
               <h3>I.G. DESAI CAMPUS</h3>
               <p>Bhatar, Surat, Gujarat 395017</p>
-              <a 
-                href="https://maps.google.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://maps.google.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn btn-secondary btn-sm"
               >
                 Open Google Maps
