@@ -112,7 +112,7 @@ const Home = ({ setActivePage }) => {
         <div className="container">
           <h2 className="section-title">Our Foundation & Core Values</h2>
           <p className="section-subtitle">The four pillars that define the ethos, learning, and character building of every student at I.G. Desai School.</p>
-          
+
           <div className="values-grid">
             {values.map((val, idx) => (
               <div className="value-card" key={idx}>
@@ -150,7 +150,6 @@ const Home = ({ setActivePage }) => {
   );
 };
 
-// Cute inline vector illustration representing graduation
 const GraduationCapIllustration = () => (
   <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ width: '100%', height: '100%', maxWidth: '280px' }}>
     <circle cx="100" cy="100" r="80" fill="#4D7E1D" fillOpacity="0.1" />

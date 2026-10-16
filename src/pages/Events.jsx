@@ -10,7 +10,6 @@ const Events = ({ setActivePage }) => {
   // Read blogs from the shared data store (synced with admin panel)
   const allBlogs = getBlogsForPublic();
 
-  // Filter blogs according to chosen category tab
   const filteredBlogs = selectedCategory === 'all'
     ? allBlogs
     : allBlogs.filter(b => b.category === selectedCategory);
@@ -22,7 +21,7 @@ const Events = ({ setActivePage }) => {
 
   // Helper function to assign consistent accent colors
   const getAccentColor = (category) => {
-    switch(category) {
+    switch (category) {
       case 'Academic': return '#4D7E1D';
       case 'Sports': return '#E67E22';
       case 'Cultural': return '#A1C038';
@@ -48,11 +47,11 @@ const Events = ({ setActivePage }) => {
       {/* Selector Tabs */}
       <section className="section events-list-section">
         <div className="container">
-          
+
           <div className="staff-tabs">
             {categories.map(cat => (
-              <button 
-                key={cat.id} 
+              <button
+                key={cat.id}
                 className={`staff-tab-btn ${selectedCategory === cat.label || (selectedCategory === 'all' && cat.id === 'all') ? 'active' : ''}`}
                 onClick={() => setSelectedCategory(cat.id === 'all' ? 'all' : cat.label)}
               >
@@ -83,24 +82,24 @@ const Events = ({ setActivePage }) => {
                       <span className="event-category-badge">{blog.category}</span>
                       <h3 className="event-title">{blog.title}</h3>
                     </div>
-                    
+
                     <div className="event-card-body">
                       <div className="event-meta-line">
                         <Calendar size={14} />
                         <span>{blog.createdAt}</span>
                       </div>
-                      
+
                       <div className="event-meta-line">
                         <MapPin size={14} />
                         <span>I.G. Desai Campus</span>
                       </div>
-                      
+
                       <p className="event-description">{blog.content || "Click to read more about this update."}</p>
                     </div>
-                    
+
                     <div className="event-card-footer">
-                      <button 
-                        className="btn-link" 
+                      <button
+                        className="btn-link"
                         style={{ color: accent }}
                         onClick={() => setActivePage(`blog-${blog.id}`)}
                       >

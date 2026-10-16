@@ -30,8 +30,7 @@ const ECorner = ({ activePanel = 'student' }) => {
       return;
     }
     setErrorMsg('');
-    
-    // Simulate lookup
+
     if (studentId === 'IG-1002' || studentId === '1002') {
       setStudentResult({
         name: "Patel Aarav K.",
@@ -72,23 +71,23 @@ const ECorner = ({ activePanel = 'student' }) => {
         <div className="container">
           {/* Main navigation for student options */}
           <div className="portal-tabs">
-            <button 
+            <button
               className={`portal-tab-btn ${activeTab === 'student' ? 'active' : ''}`}
               onClick={() => setActiveTab('student')}
             >
               <LogIn size={18} />
               <span>Student Corner</span>
             </button>
-            
-            <button 
+
+            <button
               className={`portal-tab-btn ${activeTab === 'teacher' ? 'active' : ''}`}
               onClick={() => setActiveTab('teacher')}
             >
               <FileText size={18} />
               <span>Teacher Corner</span>
             </button>
-            
-            <button 
+
+            <button
               className={`portal-tab-btn ${activeTab === 'admin' ? 'active' : ''}`}
               onClick={() => setActiveTab('admin')}
             >
@@ -96,7 +95,7 @@ const ECorner = ({ activePanel = 'student' }) => {
               <span>Admin Corner</span>
             </button>
 
-            <button 
+            <button
               className={`portal-tab-btn ${activeTab === 'parent' ? 'active' : ''}`}
               onClick={() => setActiveTab('parent')}
             >
@@ -104,7 +103,7 @@ const ECorner = ({ activePanel = 'student' }) => {
               <span>Parent Corner</span>
             </button>
 
-            <button 
+            <button
               className={`portal-tab-btn ${activeTab === 'email' ? 'active' : ''}`}
               onClick={() => setActiveTab('email')}
             >
@@ -120,13 +119,13 @@ const ECorner = ({ activePanel = 'student' }) => {
                 <div className="panel-info">
                   <h2>Access Academic Summary Reports</h2>
                   <p>Enter your GSEB Board Roll ID or School Enrollment code to query academic progress, attendance records, and quarterly results.</p>
-                  
+
                   <form onSubmit={handleStudentSearch} className="student-lookup-form">
                     <div className="form-input-group">
                       <Search className="search-icon" size={20} />
-                      <input 
-                        type="text" 
-                        placeholder="Enter Student ID (e.g. 1002, 1205)" 
+                      <input
+                        type="text"
+                        placeholder="Enter Student ID (e.g. 1002, 1205)"
                         value={studentId}
                         onChange={(e) => setStudentId(e.target.value)}
                       />
@@ -146,13 +145,13 @@ const ECorner = ({ activePanel = 'student' }) => {
                         <p>{studentResult.class} | {studentResult.rollNo}</p>
                       </div>
                     </div>
-                    
+
                     <div className="profile-details-grid">
                       <div className="detail-item">
                         <span>Evaluation Grade</span>
                         <h4>{studentResult.performance}</h4>
                       </div>
-                      
+
                       <div className="detail-item">
                         <span>CGPA Score</span>
                         <h4>{studentResult.gpa}</h4>
@@ -178,7 +177,7 @@ const ECorner = ({ activePanel = 'student' }) => {
               <div className="portal-panel downloads-panel">
                 <h2>Downloads & Circulars Hub</h2>
                 <p>Click below to fetch the official PDF brochures for GSEB Board exams, class timetables, and rules.</p>
-                
+
                 <div className="downloads-table">
                   {downloads.map((item, idx) => (
                     <div className="download-row" key={idx}>
@@ -204,7 +203,7 @@ const ECorner = ({ activePanel = 'student' }) => {
               <div className="portal-panel calendar-panel">
                 <h2>Official Academic Calendar</h2>
                 <p>Track critical administrative dates, term schedules, examinations, and holidays.</p>
-                
+
                 <div className="calendar-list">
                   {calendarEvents.map((ev, idx) => (
                     <div className="calendar-row-card" key={idx}>

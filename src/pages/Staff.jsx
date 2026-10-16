@@ -20,7 +20,6 @@ const Staff = ({ activeDept = 'all' }) => {
   // Read staff from the shared data store (synced with admin panel)
   const staffData = getStaffForPublic();
 
-  // Filter staff according to chosen department tab
   const filteredStaff = selectedDept === 'all'
     ? staffData
     : staffData.filter(s => s.dept === selectedDept);
@@ -56,7 +55,7 @@ const Staff = ({ activeDept = 'all' }) => {
                   <div className="staff-info-box">
                     <h3>{staff.name}</h3>
                     <span className="staff-role">{staff.role}</span>
-                    
+
                     {staff.qualification && (
                       <div className="staff-detail-row">
                         <GraduationCap size={16} />
