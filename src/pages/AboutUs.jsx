@@ -19,7 +19,6 @@ const AboutUs = () => {
 
   return (
     <div className="about-page animate-fade-in">
-      {/* Banner */}
       <div className="page-header" style={{ background: 'linear-gradient(135deg, #4D7E1D 0%, #A1C038 100%)' }}>
         <div className="container header-container">
           <h1>About Us</h1>
@@ -35,7 +34,7 @@ const AboutUs = () => {
             <h2>Our Vision</h2>
             <p>To be a premier center of holistic schooling, nurturing creative, ethical, and skilled student leaders capable of leading and serving society with wisdom, dignity, and compassion.</p>
           </div>
-          
+
           <div className="vision-card">
             <div className="vision-icon"><Target size={32} /></div>
             <h2>Our Mission</h2>
@@ -49,7 +48,7 @@ const AboutUs = () => {
         <div className="container">
           <h2 className="section-title">Our Milestone Journey</h2>
           <p className="section-subtitle">A look back at the legacy of growth, development, and standard setting since our establishment.</p>
-          
+
           <div className="timeline">
             {milestones.map((item, idx) => (
               <div className="timeline-item" key={idx}>
@@ -70,7 +69,7 @@ const AboutUs = () => {
         <div className="container">
           <h2 className="section-title">Our Trustees & Management</h2>
           <p className="section-subtitle">The visionary leadership guiding I.G. Desai towards new milestones of educational success.</p>
-          
+
           <div className="management-grid">
             {management.map((member, idx) => (
               <div className="management-card" key={idx}>
@@ -95,7 +94,7 @@ const AboutUs = () => {
               <h2>School Timings</h2>
             </div>
             <p className="timings-subtitle">Our school operates in different time slots for various sections to ensure optimal learning environment</p>
-            
+
             <div className="table-responsive">
               <table className="timings-table">
                 <thead>
