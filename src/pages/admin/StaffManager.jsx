@@ -24,7 +24,23 @@ const StaffManager = () => {
     imageId: ''
   });
   const [imageFile, setImageFile] = useState(null);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState('');
   const [deleteTargetId, setDeleteTargetId] = useState(null);
+
+  useEffect(() => {
+    if (imageFile) {
+      const url = URL.createObjectURL(imageFile);
+      setImagePreviewUrl(url);
+      return () => URL.revokeObjectURL(url);
+    } else if (formData.imageId) {
+      const url = getImageUrl(formData.imageId);
+      setImagePreviewUrl(url || '');
+    } else if (formData.image && (formData.image.startsWith('http') || formData.image.startsWith('/'))) {
+      setImagePreviewUrl(formData.image);
+    } else {
+      setImagePreviewUrl('');
+    }
+  }, [imageFile, formData.imageId, formData.image]);
 
   useEffect(() => {
     const handlePopState = () => {
@@ -62,6 +78,8 @@ const StaffManager = () => {
       imageId: ''
     });
     setImageFile(null);
+    const fileInput = document.getElementById('staff-image-upload');
+    if (fileInput) fileInput.value = '';
     handleToggleForm(true, false);
   };
 
@@ -78,7 +96,22 @@ const StaffManager = () => {
       imageId: staff.imageId || ''
     });
     setImageFile(null);
+    const fileInput = document.getElementById('staff-image-upload');
+    if (fileInput) fileInput.value = '';
     handleToggleForm(true, true);
+  };
+
+  const handleRemoveImage = () => {
+    setImageFile(null);
+    setFormData(prev => ({
+      ...prev,
+      image: '',
+      imageId: ''
+    }));
+    const fileInput = document.getElementById('staff-image-upload');
+    if (fileInput) {
+      fileInput.value = '';
+    }
   };
 
   const handleSave = async (e) => {
@@ -89,6 +122,12 @@ const StaffManager = () => {
     }
 
     if (editingStaffId) {
+      // If photo was changed or removed, delete previously stored image from localStorage
+      const originalStaff = staffList.find(s => s.id === editingStaffId);
+      if (originalStaff?.imageId && originalStaff.imageId !== finalImageId) {
+        deleteImage(originalStaff.imageId);
+      }
+
       // Update existing staff
       const updated = updateStaff(staffList, editingStaffId, {
         ...formData,
@@ -117,6 +156,8 @@ const StaffManager = () => {
       imageId: ''
     });
     setImageFile(null);
+    const fileInput = document.getElementById('staff-image-upload');
+    if (fileInput) fileInput.value = '';
   };
 
   const handleDeleteClick = (id) => {
@@ -257,7 +298,7 @@ const StaffManager = () => {
                   onChange={e => {
                     if (e.target.files && e.target.files[0]) {
                       const file = e.target.files[0];
-                      setFormData({...formData, image: file.name});
+                      setFormData(prev => ({ ...prev, image: file.name }));
                       setImageFile(file);
                     }
                   }} 
@@ -265,28 +306,59 @@ const StaffManager = () => {
                 <input 
                   type="text" 
                   value={formData.image} 
-                  onChange={e => setFormData({...formData, image: e.target.value})} 
+                  onChange={e => {
+                    const val = e.target.value;
+                    setFormData(prev => ({
+                      ...prev,
+                      image: val,
+                      imageId: val === '' && !imageFile ? '' : prev.imageId
+                    }));
+                  }} 
                   placeholder="e.g. photo.jpg (or click browse)" 
                   style={{ flex: 1 }} 
                 />
                 <button 
                   type="button" 
                   className="btn btn-outline" 
-                  style={{ padding: '0.55rem' }}
+                  style={{ padding: '0.55rem', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                   title="Choose image file from device"
                   onClick={() => document.getElementById('staff-image-upload').click()}
                 >
                   <ImageIcon size={18} />
                 </button>
               </div>
-              {formData.imageId && !imageFile && getImageUrl(formData.imageId) && (
-                <div style={{ marginTop: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <img 
-                    src={getImageUrl(formData.imageId)} 
-                    alt="Current preview" 
-                    style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} 
-                  />
-                  <span style={{ fontSize: '0.8rem', color: '#5A6E59' }}>Current saved photo</span>
+
+              {/* Image Preview & Remove Bar */}
+              {imagePreviewUrl ? (
+                <div className="admin-image-preview-bar">
+                  <div className="admin-image-preview-info">
+                    <img 
+                      src={imagePreviewUrl} 
+                      alt="Preview" 
+                      className="admin-image-preview-thumb" 
+                    />
+                    <div style={{ display: 'flex', flexDirection: 'column' }}>
+                      <span className="admin-image-preview-title">
+                        {imageFile ? 'New photo selected' : 'Current saved photo'}
+                      </span>
+                      {formData.image && (
+                        <span className="admin-image-preview-filename">{formData.image}</span>
+                      )}
+                    </div>
+                  </div>
+                  <button 
+                    type="button" 
+                    className="admin-image-remove-btn"
+                    onClick={handleRemoveImage}
+                    title="Remove profile image"
+                  >
+                    <Trash2 size={13} />
+                    <span>Remove Photo</span>
+                  </button>
+                </div>
+              ) : (
+                <div style={{ marginTop: '0.4rem', fontSize: '0.8rem', color: '#7a8c78', fontStyle: 'italic' }}>
+                  No photo selected (initials avatar will be used)
                 </div>
               )}
             </div>
