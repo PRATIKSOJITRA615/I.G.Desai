@@ -26,7 +26,7 @@ const Awards = () => {
 
   return (
     <div className="awards-page animate-fade-in">
-      {/* Banner */}
+
       <div className="page-header" style={{ background: 'linear-gradient(135deg, #4D7E1D 0%, #A1C038 100%)' }}>
         <div className="container header-container">
           <h1>Institutional Awards & Laurels</h1>
@@ -46,7 +46,7 @@ const Awards = () => {
                   </div>
                   <h2>{cat.title}</h2>
                 </div>
-                
+
                 <div className="honors-grid">
                   {cat.items.map((item, itemIdx) => (
                     <div className="honor-card" key={itemIdx} style={{ '--border-left-accent': cat.accent }}>
