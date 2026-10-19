@@ -8,7 +8,6 @@ const AdminWrapper = ({ setActivePage }) => {
   const [adminUser, setAdminUser] = useState(null);
 
   const handleLogin = (username, password) => {
-    // Temporary mock authentication
     if (username === 'admin' && password === 'admin') {
       setIsLoggedIn(true);
       setAdminUser({ username, role: 'admin' });
