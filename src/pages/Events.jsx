@@ -7,7 +7,6 @@ import './Pages.css';
 const Events = ({ setActivePage }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  // Read blogs from the shared data store (synced with admin panel)
   const allBlogs = getBlogsForPublic();
 
   const filteredBlogs = selectedCategory === 'all'
