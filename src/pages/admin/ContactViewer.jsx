@@ -3,7 +3,6 @@ import { Trash2 } from 'lucide-react';
 import ConfirmModal from '../../components/ConfirmModal';
 
 const ContactViewer = () => {
-  // Mock state based on DB schema
   const [contacts, setContacts] = useState([
     { id: 1, name: 'Rahul Sharma', email: 'rahul.s@example.com', phoneno: '9876543210', message: 'Inquiry regarding 11th Science admissions.', status: 'New', year: 2026 },
     { id: 2, name: 'Megha Patel', email: 'megha.p@example.com', phoneno: '9988776655', message: 'When is the vocational training workshop starting?', status: 'Read', year: 2026 }
@@ -52,9 +51,9 @@ const ContactViewer = () => {
                 </td>
                 <td style={{ maxWidth: '300px' }}>{contact.message}</td>
                 <td>
-                  <span style={{ 
-                    padding: '4px 8px', 
-                    borderRadius: '12px', 
+                  <span style={{
+                    padding: '4px 8px',
+                    borderRadius: '12px',
                     fontSize: '0.8rem',
                     backgroundColor: contact.status === 'New' ? '#e3fce1' : '#f0f0f0',
                     color: contact.status === 'New' ? '#2e7d32' : '#666'
