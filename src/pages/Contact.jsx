@@ -192,7 +192,7 @@ const Contact = () => {
               <h3>I.G. DESAI CAMPUS</h3>
               <p>Bhatar, Surat, Gujarat 395017</p>
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps/search/?api=1&query=I.G.+Desai+Campus+Bhatar+Surat+Gujarat+395017"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-secondary btn-sm"
