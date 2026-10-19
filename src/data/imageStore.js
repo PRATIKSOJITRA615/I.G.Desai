@@ -1,10 +1,7 @@
 /**
  * Image Store — client-side image persistence via localStorage
- *
- * Since there is no backend, uploaded images are converted to base64 data-URLs
- * and stored in localStorage keyed by a unique ID. Both admin and user-facing
- * pages reference images by this ID.
- *
+ 
+ 
  * Storage layout:
  *   key: "igdesai_img_<id>"  →  value: data:image/...;base64,...
  */
