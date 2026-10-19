@@ -118,7 +118,7 @@ const AboutUs = () => {
                   </tr>
                   <tr>
                     <td>
-                      <div className="day-cell sat">📅 Saturday</div>
+                      <div className="day-cell sat">Saturday</div>
                     </td>
                     <td><span className="time-badge">7:35 AM - 10:15 AM</span></td>
                     <td><span className="time-badge">10:15 AM - 1:00 PM</span></td>
