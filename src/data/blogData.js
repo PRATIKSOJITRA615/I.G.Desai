@@ -3,7 +3,6 @@
  *
  * Single source of truth for blog/news data used by both:
  *   - Admin BlogManager (CRUD operations)
- *   - User-facing BlogArticle page (read)
  *
  * Persists admin changes to localStorage.
  * Image references are stored as imageStore IDs.
