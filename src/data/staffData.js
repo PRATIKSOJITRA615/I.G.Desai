@@ -142,7 +142,6 @@ export function updateStaff(staffList, id, updatedData) {
 }
 
 /**
- * Delete a staff record by ID and persist.
  * Returns the updated list.
  */
 export function deleteStaff(staffList, id) {
