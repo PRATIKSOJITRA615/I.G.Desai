@@ -32,7 +32,7 @@ const Vocational = () => {
 
   return (
     <div className="vocational-page animate-fade-in">
-      {/* Banner */}
+
       <div className="page-header" style={{ background: 'linear-gradient(135deg, #4D7E1D 0%, #A1C038 100%)' }}>
         <div className="container header-container">
           <h1>Vocational Training</h1>
@@ -46,7 +46,7 @@ const Vocational = () => {
           <div className="voc-intro-content">
             <h2>Bridging Academics with Industry-Ready Skills</h2>
             <p>At I.G. Desai Vidyalay, our main goal is to prepare students for real-world scenarios. We have integrated structured vocational modules inside the weekly timetables so that pupils learn manual, mechanical, and computational capabilities that help in their careers and higher studies.</p>
-            
+
             <div className="key-feature-list">
               <div className="feature-item">
                 <CheckCircle2 size={18} className="icon-green" />
@@ -77,7 +77,7 @@ const Vocational = () => {
         <div className="container">
           <h2 className="section-title">Offered Skill Courses</h2>
           <p className="section-subtitle">A detailed look at standard courses structured into our higher primary and secondary stream calendars.</p>
-          
+
           <div className="courses-list-layout">
             {courses.map((course, idx) => (
               <div className="course-row-card" key={idx}>
@@ -85,11 +85,11 @@ const Vocational = () => {
                   {course.icon}
                   <span className="course-duration">{course.duration}</span>
                 </div>
-                
+
                 <div className="course-details-column">
                   <h3>{course.title}</h3>
                   <p>{course.desc}</p>
-                  
+
                   <div className="benefits-tags">
                     {course.benefits.map((benefit, i) => (
                       <span key={i} className="benefit-tag">
