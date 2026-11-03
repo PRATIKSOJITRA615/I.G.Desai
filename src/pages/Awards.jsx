@@ -34,7 +34,7 @@ const Awards = () => {
         </div>
       </div>
 
-      {/* Grid listing honors */}
+
       <section className="section honors-section">
         <div className="container">
           <div className="honors-container">
