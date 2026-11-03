@@ -41,7 +41,6 @@ const Contact = () => {
 
   return (
     <div className="contact-page animate-fade-in">
-      {/* Banner */}
       <div className="page-header" style={{ background: 'linear-gradient(135deg, #4D7E1D 0%, #A1C038 100%)' }}>
         <div className="container header-container">
           <h1>Contact Us</h1>
