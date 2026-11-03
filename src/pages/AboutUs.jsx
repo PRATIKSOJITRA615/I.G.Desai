@@ -26,7 +26,6 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Vision & Mission */}
       <section className="section vision-section">
         <div className="container vision-grid">
           <div className="vision-card">
