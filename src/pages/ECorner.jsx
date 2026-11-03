@@ -69,7 +69,7 @@ const ECorner = ({ activePanel = 'student' }) => {
 
       <section className="section portal-tabs-section">
         <div className="container">
-          {/* Main navigation for student options */}
+
           <div className="portal-tabs">
             <button
               className={`portal-tab-btn ${activeTab === 'student' ? 'active' : ''}`}
