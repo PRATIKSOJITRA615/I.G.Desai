@@ -113,7 +113,7 @@ const ECorner = ({ activePanel = 'student' }) => {
           </div>
 
           <div className="portal-display-box">
-            {/* Student Search Panel */}
+
             {activeTab === 'student' && (
               <div className="portal-panel login-panel">
                 <div className="panel-info">
