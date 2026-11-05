@@ -42,7 +42,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* History Timeline */}
+
       <section className="section history-section">
         <div className="container">
           <h2 className="section-title">Our Milestone Journey</h2>
