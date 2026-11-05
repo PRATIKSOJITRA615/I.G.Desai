@@ -78,9 +78,9 @@ const Home = ({ setActivePage }) => {
       icon: (
         <svg viewBox="0 0 100 100" className="val-custom-icon">
           <circle cx="50" cy="50" r="39" fill="white" stroke="#FF9200" strokeWidth="4" />
-          {/* Diya Bowl */}
+
           <path d="M32 48h36c0 10-8 16-18 16s-18-6-18-16z" fill="none" stroke="#5c5c5c" strokeWidth="3" strokeLinejoin="round" />
-          {/* Diya Flame */}
+
           <path d="M50 20c-1.5 8-0.5 18-0.5 28h1c0-10 1-20-0.5-28z" fill="#5c5c5c" stroke="#5c5c5c" strokeWidth="1" strokeLinecap="round" />
           <text x="50" y="78" textAnchor="middle" fontStyle="italic" fontWeight="800" fontSize="11" fill="#333" fontFamily="Georgia, serif">प्रकाश</text>
         </svg>

@@ -18,7 +18,7 @@ const Events = ({ setActivePage }) => {
     ...BLOG_CATEGORIES
   ];
 
-  // Helper function to assign consistent accent colors
+
   const getAccentColor = (category) => {
     switch (category) {
       case 'Academic': return '#4D7E1D';
