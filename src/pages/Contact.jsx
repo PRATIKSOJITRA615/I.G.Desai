@@ -50,7 +50,7 @@ const Contact = () => {
 
       <section className="section contact-section">
         <div className="container contact-grid">
-          {/* Coordinates Column */}
+
           <div className="contact-details-column">
             <h2>Institutional Coordinates</h2>
             <p>For immediate assistance regarding forms, documents, fee submissions, or credentials verification, reach out during office hours.</p>
