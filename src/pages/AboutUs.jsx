@@ -84,7 +84,7 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* School Timings Section */}
+
       <section className="timings-section">
         <div className="container">
           <div className="timings-card">
