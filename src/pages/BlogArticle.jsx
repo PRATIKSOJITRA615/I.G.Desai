@@ -72,7 +72,7 @@ const BlogArticle = ({ activePage }) => {
       <div className="blog-hero-banner" style={{ background: heroBackground }}>
         <div className="container">
           <div className="blog-hero-content">
-            {/* Space for future breadcrumbs or hero details */}
+
           </div>
         </div>
       </div>
